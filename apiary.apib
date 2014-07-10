@@ -1,94 +1,234 @@
 FORMAT: 1A
-HOST: http://www.google.com
+HOST: twistory.pythonanywhere.com/
 
 #### Twistory
-Twistory API gives access to real world **Twitter data** and view _trending events_ 
+
+Twistory API gives access to real world **Twitter data** and view _trending events_
+
+**Version: v1**
+
+Resources
+
++ [Handles](<http://idb14.apiary-mock.com/handles)
++ [Hashtag](<http://idb14.apiary-mock.com/hashtags)
++ [Clusters](<http://idb14.apiary-mock.com/clusters)
+
 
 # Group Handles
-Twitter Handle resources are people/entities that are actively engaged on twitter 
+Twitter Handle resources are _people/entities_ that are actively engaged on twitter 
+
 
 ## Handle Collection [/handles]
-### List all Handle [GET]
++ Model (application/json)
+
+    + Headers
+    
+        ```
+        Link: <http://idb14.apiary-mock.com/handles>
+        Date: <Tue, 15 Dec 2054 03:11:21 GMT>
+        Accept-Language: <en-us>
+        ```
+    + Body
+        ```
+        [{
+         "id": 1, "name": "KingJames", "picture": "link to pic"
+         }, 
+         {
+         "id": 2, "name": "oscar11", "picture": "link to pic"
+         },
+         {
+         "id": 3, "name": "kobebryant", "picture": "link to pic"
+         }]
+        ```
+        
+### List the name, id and profile picture of all handles [GET]
++ Response 200
+
+    [Handle Collection][]
+
+
+
+## Handle [/handles/handle_id]
+
++ Parameters
+    + handle_id (required, integer, `GET /handles/234`) ... the id given to a handle by this website
+    
++ Model (application/json)
+    + Headers
+    
+        ```
+        Link: <http://idb14.apiary-mock.com/handles/1>
+        Date: <Tue, 15 Dec 2054 03:11:21 GMT>
+        Accept-Language: <en-us>
+        ```
+    + Body
+        ```
+        {
+            "id": 1, "name": "KingJames", "picture": "link to pic", "bio": "Current NBA player",
+            "tweet": "link to this handle's tweeter website",
+            "videos": [{"video": "link to video", "description": "dunk"}],
+            "graphs": [{"graph": "link to graph", "description": "number of tweets in 2013"}],
+            "related_handles": [{"id":3, "name": "kobebryant", "page": "/handles/3"}],
+            "related_hashtags": [{"id":1, "name": "HeatsVsSpurs", "page": "/hashtags/1"},
+                                 {"id":3, "name": "FreeAgency", "page": "/hashtags/3"}
+                                ],
+            "related_clusters": [{"id":1, "name":"MiamiHeat", "page": "/clusters/1"}]
+        }
+        ```
+      
+
+### List all info of the handle with the given id [GET]
+
 + Response 200 (application/json)
 
-        [{
-         "id": 1, "identifier": "KingJames","name": "Lebron James"
-        }, {
-         "id": 2, "identifier": "kobebryant","name": "Kobe Bryant"
-        }]
+    [Handle][]
+    
++ Response 404 (application/json)
 
-### Create/Store a new Handle [POST]
-+ Request (application/json)
-
-        { "identifier": "neymarjr","name": "Neymar Jr" }
-
-+ Response 201 (application/json)
-        
-        { "id": 3, "identifier": "neymarjr", "name": "Neymar Jr"}
-       
+        {
+            "error": "This id does not exsit in the file."
+        }
 
 
 
 # Group Hashtags
 Hashtags are markers that denote a specific tweet
 
-## HashTags Collection [/hashtags]
-### List all HashTags [GET]
-+ Response 200 (application/json)
+## Hashtag Collection [/hashtags]
 
++ Model (application/json)
+
+    + Headers
+    
+        ```
+        Link: <http://idb14.apiary-mock.com/hashtags>
+        Date: <Tue, 15 Dec 2054 03:11:21 GMT>
+        Accept-Language: <en-us>
+        ```
+    + Body
+        ```
         [{
-         "id": 1, "name": "HeatsVsSpurs" retweet_count:"600000" 
+         "id": 1, "name": "HeatsVsSpurs" 
         }, {
-         "id": 2, "name": "WorldCup" retweet_count:"99999999"
+         "id": 2, "name": "WorldCup" 
+        }, {
+         "id": 3, "name": "FreeAgency"
         }]
+        ```
 
-### Create a Hashtag [POST]
-+ Request (application/json)
+### List the id and name of all hashtags [GET]
 
-        { "name": "LebronFreeAgency" }
-
-+ Response 201 (application/json)
-
-        { "id": 3, "name": "LebronnFreeAgency" }
-       
-
-
-## HashTag [/hashtags/name/]
-Get all hashtags with a certain name
-
-+ Parameters
-   + (a Phrase or Word that was tweeted `#MauryIsHeTheFather`) (required, string, `WorldCup` ) ... Need to be the name of objects
-   
-### Retrieve a Hashtag [GET]
 + Response 200 (application/json)
 
-   + Header
-
-            X-My-Header: The Value
-
-   + Body
-
-            { "id": 2, "name":"WorldCup" }
+    [Hashtag Collection][]
 
 
-## HashTag [/hashtags/{id}]
-A single Note object with all its details
+## Hashtag [/hashtags/hashtag_id]
 
 + Parameters
-   + id (required, number, `1`) ... Numeric `id` of the Note to perform action with. Has example value.
+    + hashtag_id(required, integer,`GET /hashtags/45454`) ... the id given to a hashtag by this website
 
++ Model (application/json)
 
-### Retrieve a Hashtag [GET]
+    + Headers
+    
+        ```
+        Link: <http://idb14.apiary-mock.com/hashtags/1>
+        Date: <Tue, 15 Dec 2054 03:11:21 GMT>
+        Accept-Language: <en-us>
+        ```
+    + Body
+        ```
+        {
+            "hashtag_id": 1, "name": "HeatsVsSpurs", "description": "NBA final",
+            "graphs": [{"graph": "link to graph", "description": "number of uses in 2013"}],
+            "related_handles": [{"id":1, "name": "KingJames", "page": "/handles/1"}],
+            "related_hashtags": [],
+            "related_clusters": [{"id":1, "name":"MiamiHeat", "page": "/clusters/1"}]
+        }
+        ```
+
+### List all info of the hashtag with the given id [GET]
+
 + Response 200 (application/json)
 
-   + Header
+    [Hashtag][]
+    
++ Response 404 (application/json)
 
-            X-My-Header: The Value
+        {
+            "error": "This id does not exsit in the file."
+        }
 
-   + Body
 
-            { "id": 2, "name":"WorldCup" }
+# Group Clusters
+Clusters are groups that are associated with multiple handles and hashtags
 
-### Remove a Hashtag [DELETE]
-+ Response 204
+## Cluster Collection [/clusters]
 
++ Model (application/json)
+
+    + Headers
+    
+        ```
+        Link: <http://idb14.apiary-mock.com/clusters>
+        Date: <Tue, 15 Dec 2054 03:11:21 GMT>
+        Accept-Language: <en-us>
+        ```
+    + Body
+        ```
+        [{
+            "id": 1, "name": "MiamiHeat"
+         },
+         {
+            "id": 2, "name": "Brazil"
+        }]
+        ```
+
+
+
+### List the id and name of all clusters [GET]
+
++ Response 200 (application/json)
+
+    [Cluster Collection][]
+
+## Cluster [/clusters/cluster_id]
+
++ Parameters
+    + cluster_id(required, integer, `GET /clusters/2`) ... the id given to a cluster by this website
+
++ Model (application/json)
+
+    + Headers
+    
+        ```
+        Link: <http://idb14.apiary-mock.com/clusters/1>
+        Date: <Tue, 15 Dec 2054 03:11:21 GMT>
+        Accept-Language: <en-us>
+        ```
+    + Body
+        ```
+        {
+            "id": 1, "name": "MiamiHeat", "description": "A NBA team",
+            "graphs": [{"graphs": "link to graph", "description": "active period"}]
+            "related_handles": [{"id":1, "name": "KingJames", "page": "/handles/1"}],
+            "related_hashtags": [{"id":1, "name": "HeatsVsSpurs", "page": "/hashtags/1"}],
+            "related_clusters": []            
+        } 
+        ```
+
+
+### List all info of the cluster with the given id [GET]
+
++ Response 200 (application/json)
+
+    [Cluster][]   
+    
+
++ Response 404 (application/json)
+
+        {
+            "error": "This id does not exsit in the file."
+        }
+        
