@@ -22,7 +22,7 @@ Resources
     + Headers
     
         ```
-        Link: <http://idb14.apiary-mock.com/states>
+        Link: <http://idb14.apiary-mock.com/states.json>
         Date: <Tue, 15 Dec 2054 03:11:21 GMT>
         Accept-Language: <en-us>
         ```
@@ -92,7 +92,7 @@ Resources
     + Headers
     
         ```
-        Link: <http://idb14.apiary-mock.com/parks>
+        Link: <http://idb14.apiary-mock.com/parks.json>
         Date: <Tue, 15 Dec 2054 03:11:21 GMT>
         Accept-Language: <en-us>
         ```
@@ -124,7 +124,7 @@ Resources
     + Headers
     
         ```
-        Link: <http://idb14.apiary-mock.com/parks/2>
+        Link: <http://idb14.apiary-mock.com/parks/Yosemite.json>
         Date: <Tue, 15 Dec 2054 03:11:21 GMT>
         Accept-Language: <en-us>
         ```
@@ -159,17 +159,17 @@ Resources
     + Headers
     
         ```
-        Link: <http://idb14.apiary-mock.com/hikes>
+        Link: <http://idb14.apiary-mock.com/hikes.json>
         Date: <Tue, 15 Dec 2054 03:11:21 GMT>
         Accept-Language: <en-us>
         ```
     + Body
         ```
         [{
-            "name": "Mirror Lake Loop", "pic": 
+            "name": "Mirror Lake Loop", "pic": "link to picture of the hike"
          },
          {
-            "name": "Hallet Peak", "pic":
+            "name": "Hallet Peak", "pic": "link to picture of the hike"
         }]
         ```
 
@@ -184,7 +184,7 @@ Resources
 ## Hike [/hikes/hike_id.json]
 
 + Parameters
-    + hike_id (required, string, `GET /hike/MirrorLoop`)
+    + hike_id (required, string, `GET /hike/Mirror Lake Loop.json`)
 
 + Model (application/json)
 
@@ -198,9 +198,9 @@ Resources
     + Body
         ```
         {
-            "id": 1, "name": "Mirror Lake Loop", "Distance(mile)": "5",
-            "estimated_time(min)": "90", "difficulty": "moderate", 
-            "in_park": {"id": 2, "name": "Yosemite", "page": "/parks/2"}          
+            "id": 1, "name": "Mirror Lake Loop", "Distance": "5 miles",
+            "estimated_time": "90 min", "difficulty": "moderate", "pic": "link to pic"
+            "park": "Yosemite"          
         } 
         ```
 
