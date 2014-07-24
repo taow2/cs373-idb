@@ -22,7 +22,7 @@ Resources
     + Headers
     
         ```
-        Link: <http://idb14.apiary-mock.com/handles>
+        Link: <http://idb14.apiary-mock.com/states>
         Date: <Tue, 15 Dec 2054 03:11:21 GMT>
         Accept-Language: <en-us>
         ```
@@ -49,7 +49,7 @@ Resources
 ## State [/states/state_id]
 
 + Parameters
-    + state_id (required, integer, `GET /states/234`) ... the id given to a state by this website
+    + state_id (required, string, `GET /states/Texas`) 
     
 + Model (application/json)
     + Headers
@@ -117,7 +117,7 @@ Resources
 ## Park [/parks/park_id]
 
 + Parameters
-    + park_id (required, integer,`GET /parks/45454`) ... the id given to a park by this website
+    + park_id (required, string,`GET /parks/GrandCay`) ...
 
 + Model (application/json)
 
@@ -152,7 +152,6 @@ Resources
 
 
 # Group Hikes
-Clusters are groups that are associated with multiple handles and hashtags
 
 ## Hike Collection [/hikes]
 
@@ -186,7 +185,7 @@ Clusters are groups that are associated with multiple handles and hashtags
 ## Hike [/hikes/hike_id]
 
 + Parameters
-    + hike_id (required, integer, `GET /hike/2`) ... the id given to a hike by this website
+    + hike_id (required, string, `GET /hike/MirrorLoop`)
 
 + Model (application/json)
 
