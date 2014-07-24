@@ -16,7 +16,7 @@ Resources
 # Group States
 
 
-## State Collection [/states]
+## State Collection [/states.json]
 + Model (application/json)
 
     + Headers
@@ -46,25 +46,25 @@ Resources
 
 
 
-## State [/states/state_name]
+## State [/states/state_name.json]
 
 + Parameters
-    + state_name (required, string, `GET /states/Texas`) 
+    + state_name (required, string, `GET /states/Texas.json`) 
     
 + Model (application/json)
     + Headers
     
         ```
-        Link: <http://idb14.apiary-mock.com/states/Utah>
+        Link: <http://idb14.apiary-mock.com/states/Utah.json>
         Date: <Tue, 15 Dec 2054 03:11:21 GMT>
         Accept-Language: <en-us>
         ```
     + Body
         ```
         {
-            "id": 1, "name": "Utah", "date_founded": "1/4/1896", "population": "29000872",
-                   "size(mile^2)": "84899",
-            "parks": [{"id":1, "name": "Zion", "page": "/parks/1"}],
+            "name": "Utah", "date_founded": "1/4/1896", "population": "29000872",
+                   "size": "84899", "video": "link to video"
+            "parks": [{"name": "Zion", "page": "/parks/1"}],
          }
         ```
       
@@ -85,7 +85,7 @@ Resources
 
 # Group Parks
 
-## Park Collection [/parks]
+## Park Collection [/parks.json]
 
 + Model (application/json)
 
@@ -99,11 +99,11 @@ Resources
     + Body
         ```
         [{
-         "id": 1, "name": "Zion" 
+         "name": "Zion", "pic": "link to picture of park" 
         }, {
-         "id": 2, "name": "Yosemite" 
+         "name": "Yosemite", "pic": "link to picture of park" 
         }, {
-         "id": 3, "name": "Denail"
+         "name": "Denail", "pic": "link to picture of park"
         }]
         ```
 
@@ -114,10 +114,10 @@ Resources
     [Park Collection][]
 
 
-## Park [/parks/park_id]
+## Park [/parks/park_id.json]
 
 + Parameters
-    + park_id (required, string,`GET /parks/GrandCay`) ...
+    + park_id (required, string,`GET /parks/Grand Cayon.json`) ...
 
 + Model (application/json)
 
@@ -131,10 +131,9 @@ Resources
     + Body
         ```
         {
-            "id": 2, "name": "Yosemite", "size(acres)": "747956",
-            "elevation(ft)": "13114",
-            "in_state": [{"id":3, "name": "California", "page": "/states/3"}],           
-            "hikes": [{"id":1, "name":"Mirror Lake Loop", "page": "/hikes/1"}]
+            "name": "Yosemite", "size": "747956 acres",
+            "elevation": "13114 ft", "visitors": "100000 per year",
+            "state": "California        
         }
         ```
 
@@ -153,7 +152,7 @@ Resources
 
 # Group Hikes
 
-## Hike Collection [/hikes]
+## Hike Collection [/hikes.json]
 
 + Model (application/json)
 
@@ -167,10 +166,10 @@ Resources
     + Body
         ```
         [{
-            "id": 1, "name": "Mirror Lake Loop"
+            "name": "Mirror Lake Loop", "pic": 
          },
          {
-            "id": 2, "name": "Hallet Peak"
+            "name": "Hallet Peak", "pic":
         }]
         ```
 
@@ -182,7 +181,7 @@ Resources
 
     [Hike Collection][]
 
-## Hike [/hikes/hike_id]
+## Hike [/hikes/hike_id.json]
 
 + Parameters
     + hike_id (required, string, `GET /hike/MirrorLoop`)
@@ -192,7 +191,7 @@ Resources
     + Headers
     
         ```
-        Link: <http://idb14.apiary-mock.com/hikes/1>
+        Link: <http://idb14.apiary-mock.com/hikes/Mirror Lake Loop.json>
         Date: <Tue, 15 Dec 2054 03:11:21 GMT>
         Accept-Language: <en-us>
         ```
