@@ -16,13 +16,13 @@ Resources
 # Group States
 
 
-## State Collection [/states.json]
+## State Collection [/api/states]
 + Model (application/json)
 
     + Headers
     
         ```
-        Link: <http://idb14.apiary-mock.com/states.json>
+        Link: <http://idb14.apiary-mock.com/api/states>
         Date: <Tue, 15 Dec 2054 03:11:21 GMT>
         Accept-Language: <en-us>
         ```
@@ -44,10 +44,10 @@ Resources
 
 
 
-## State [/states/state_name]
+## State [/api/states/state_name]
 
 + Parameters
-    + state_name (required, string, `GET /states.json/Texas`) 
+    + state_name (required, string, `GET /api/states/Texas`) 
     
 + Model (application/json)
     + Headers
@@ -83,14 +83,14 @@ Resources
 
 # Group Parks
 
-## Park Collection [/parks.json]
+## Park Collection [/api/parks]
 
 + Model (application/json)
 
     + Headers
     
         ```
-        Link: <http://idb14.apiary-mock.com/parks.json>
+        Link: <http://idb14.apiary-mock.com/api/parks>
         Date: <Tue, 15 Dec 2054 03:11:21 GMT>
         Accept-Language: <en-us>
         ```
@@ -112,17 +112,17 @@ Resources
     [Park Collection][]
 
 
-## Park [/parks/park_id.json]
+## Park [/api/parks/park_name]
 
 + Parameters
-    + park_id (required, string,`GET /parks/Grand Cayon.json`) ...
+    + park_name (required, string,`GET /api/parks/Grand Cayon`) ...
 
 + Model (application/json)
 
     + Headers
     
         ```
-        Link: <http://idb14.apiary-mock.com/parks/Yosemite.json>
+        Link: <http://idb14.apiary-mock.com/api/parks/Yosemite>
         Date: <Tue, 15 Dec 2054 03:11:21 GMT>
         Accept-Language: <en-us>
         ```
@@ -150,7 +150,7 @@ Resources
 
 # Group Hikes
 
-## Hike Collection [/hikes.json]
+## Hike Collection [/api/hikes]
 
 + Model (application/json)
 
@@ -179,31 +179,31 @@ Resources
 
     [Hike Collection][]
 
-## Hike [/hikes/hike_id.json]
+## Hike [/api/hikes/hike_name]
 
 + Parameters
-    + hike_id (required, string, `GET /hike/Mirror Lake Loop.json`)
+    + hike_name (required, string, `GET /api/hike/Mirror Lake Loop.json`)
 
 + Model (application/json)
 
     + Headers
     
         ```
-        Link: <http://idb14.apiary-mock.com/hikes/Mirror Lake Loop.json>
+        Link: <http://idb14.apiary-mock.com/api/hikes/Mirror Lake Loop.json>
         Date: <Tue, 15 Dec 2054 03:11:21 GMT>
         Accept-Language: <en-us>
         ```
     + Body
         ```
         {
-            "id": 1, "name": "Mirror Lake Loop", "Distance": "5 miles",
+            "name": "Mirror Lake Loop", "Distance": "5 miles",
             "estimated_time": "90 min", "difficulty": "moderate", "pic": "link to pic"
             "park": "Yosemite"          
         } 
         ```
 
 
-### List all info of the hike with the given id [GET]
+### List all info of the hike with the given name [GET]
 
 + Response 200 (application/json)
 
