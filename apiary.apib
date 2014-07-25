@@ -37,7 +37,7 @@ Resources
          }
         ```
         
-### List the name and id of all states [GET]
+### List the name and the path to its detailed page of all states [GET]
 + Response 200
 
     [State Collection][]
@@ -67,7 +67,7 @@ Resources
         ```
       
 
-### List all info of the state with the given id [GET]
+### List all info of the state with the given name [GET]
 
 + Response 200 (application/json)
 
@@ -103,7 +103,7 @@ Resources
         }
         ```
 
-### List the id and name of all parks [GET]
+### List the name and the path to its detailed page of all parks [GET]
 
 + Response 200 (application/json)
 
@@ -133,7 +133,7 @@ Resources
         }
         ```
 
-### List all info of the park with the given id [GET]
+### List all info of the park with the given name [GET]
 
 + Response 200 (application/json)
 
@@ -170,7 +170,7 @@ Resources
 
 
 
-### List the id and name of all hikes [GET]
+### List the name and the path to the detailed page of all hikes [GET]
 
 + Response 200 (application/json)
 
@@ -179,14 +179,14 @@ Resources
 ## Hike [/api/hikes/hike_name]
 
 + Parameters
-    + hike_name (required, string, `GET /api/hike/Mirror Lake Loop.json`)
+    + hike_name (required, string, `GET /api/hike/Mirror Lake Loop`)
 
 + Model (application/json)
 
     + Headers
     
         ```
-        Link: <http://idb14.apiary-mock.com/api/hikes/Mirror Lake Loop.json>
+        Link: <http://idb14.apiary-mock.com/api/hikes/Mirror Lake Loop>
         Date: <Tue, 15 Dec 2054 03:11:21 GMT>
         Accept-Language: <en-us>
         ```
