@@ -29,12 +29,12 @@ Resources
     + Body
         ```
         {
-         "Utah": "/states/Utah"  
+         "Utah": "/api/states/Utah"  
          
-         "Texas": "/states/Texas"
+         "Texas": "/api/states/Texas"
         
-         "California": "/states/California"
-         }]
+         "California": "/api/states/California"
+         }
         ```
         
 ### List the name and id of all states [GET]
@@ -62,7 +62,7 @@ Resources
         {
             "name": "Utah", "date_founded": "1/4/1896", "population": "29000872",
                    "size": "84899", "video": "link to video"
-            "parks": [{"name": "Zion", "page": "/parks/1"}],
+            "parks": {"Zion": "/api/parks/Zion"},
          }
         ```
       
@@ -96,13 +96,11 @@ Resources
         ```
     + Body
         ```
-        [{
-         "name": "Zion", "pic": "link to picture of park" 
-        }, {
-         "name": "Yosemite", "pic": "link to picture of park" 
-        }, {
-         "name": "Denail", "pic": "link to picture of park"
-        }]
+        {
+         "Zion" : "/api/parks/Zion",
+         "Yosemite" : "/api/parks/Yosemite" 
+         "Denail" : "/api/parks/Denail"
+        }
         ```
 
 ### List the id and name of all parks [GET]
