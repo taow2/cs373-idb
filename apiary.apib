@@ -28,14 +28,12 @@ Resources
         ```
     + Body
         ```
-        [{
-         "name": "Utah", "flag": "link to pic of flag" 
-         }, 
-         {
-         "name": "Texas", "flag": "link to pic of flag"
-         },
-         {
-         "name": "California", "flag: "link to pic of flag"
+        {
+         "Utah": "/states/Utah"  
+         
+         "Texas": "/states/Texas"
+        
+         "California": "/states/California"
          }]
         ```
         
@@ -46,16 +44,16 @@ Resources
 
 
 
-## State [/states/state_name.json]
+## State [/states/state_name]
 
 + Parameters
-    + state_name (required, string, `GET /states/Texas.json`) 
+    + state_name (required, string, `GET /states.json/Texas`) 
     
 + Model (application/json)
     + Headers
     
         ```
-        Link: <http://idb14.apiary-mock.com/states/Utah.json>
+        Link: <http://idb14.apiary-mock.com/states.json/Utah>
         Date: <Tue, 15 Dec 2054 03:11:21 GMT>
         Accept-Language: <en-us>
         ```
