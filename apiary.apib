@@ -61,7 +61,7 @@ Resources
         ```
         {
             "name": "Utah", "date_founded": "1/4/1896", "population": "29000872",
-                   "size": "84899", "video": "link to video"
+                   "size(sqml)": "84899", "video": "link to video", "flag": "link to pic of flags"
             "parks": {"Zion": "/api/parks/Zion"},
          }
         ```
@@ -127,9 +127,9 @@ Resources
     + Body
         ```
         {
-            "name": "Yosemite", "size": "747956 acres",
-            "elevation": "13114 ft", "visitors": "100000 per year",
-            "state": "California        
+            "name": "Yosemite", "size(acres)": "747956", "date_founded": "12/02/1982", "image": "link to image",
+            "max_elevation(ft)": 13114, "visitors(annual)": "100000", "video": "link to video,
+            "state": "California, "hikes": {"Mirror Lake Loop": "/api/hikes/Mirror Lake Loop", "Hallet Peak": "/api/hikes/Hallet Peak"}        
         }
         ```
 
@@ -155,7 +155,7 @@ Resources
     + Headers
     
         ```
-        Link: <http://idb14.apiary-mock.com/hikes.json>
+        Link: <http://idb14.apiary-mock.com/api/hikes>
         Date: <Tue, 15 Dec 2054 03:11:21 GMT>
         Accept-Language: <en-us>
         ```
@@ -194,8 +194,8 @@ Resources
     + Body
         ```
         {
-            "name": "Mirror Lake Loop", "Distance": "5 miles",
-            "estimated_time": "90 min", "difficulty": "moderate", "pic": "link to pic"
+            "name": "Mirror Lake Loop", "Distance(mile)": "5",
+            "est_time(min)": "90 min", "difficulty": "moderate", "pic": "link to pic"
             "park": "Yosemite"          
         } 
         ```
